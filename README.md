@@ -12,7 +12,7 @@ Example:\
 The Bot can display memes on different topics using simple command.\
 `>meme (Topic name)`
 
-Screenshot:
+Screenshot:\
 ![image1](Screenshots/s1.jpg "1")
 
 ## Animated Emojis
@@ -22,7 +22,7 @@ Example:\
 `Lol`
 `sed`
 
-Screenshot:
+Screenshot:\
 ![image2](Screenshots/s2.jpg "2")
 
 
