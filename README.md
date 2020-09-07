@@ -4,6 +4,6 @@
 Use '>' before text to interact with the bot.
 
 Example:
-'>Yo'
-'>Hi'
-'>hello'
+`>Yo`
+`>Hi`
+`>hello`
