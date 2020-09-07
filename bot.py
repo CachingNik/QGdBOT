@@ -1,8 +1,10 @@
-#import discord
 from discord.ext import commands
+import os
+
 
 client = commands.Bot(command_prefix=">")
 bad_words = ["fuck", "F", "FUCK", "f"]
+
 
 @client.event
 async def on_ready():
@@ -30,4 +32,4 @@ async def sourcecode(ctx):
     await ctx.send("https://github.com/CachingNik/QGdBOT")
 
 
-client.run("<- Token goes here ->")
+client.run(os.getenv("TOKEN"))
