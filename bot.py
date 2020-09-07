@@ -3,7 +3,7 @@ import os
 
 
 client = commands.Bot(command_prefix=">")
-bad_words = ["fuck", "F", "FUCK", "f"]
+bad_words = ["fuck", "FUCK", "Fuck"]
 
 
 @client.event
