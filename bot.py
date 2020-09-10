@@ -70,7 +70,7 @@ async def sourcecode(ctx):
 async def meme(ctx, *, topic=""):
     sr = r.subreddit(topic + "memes")
     ts = []
-    t = sr.top(limit=5)
+    t = sr.top(limit=25)
 
     for s in t:
         ts.append(s)
