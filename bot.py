@@ -15,9 +15,14 @@ client.load_extension("fts.voice")
 @client.event
 async def on_ready():
     print("Bot is ready")
-    channel = client.get_channel(758785482728407060)
-    await channel.send("Yo")
-
+    channel = client.get_channel(752244288280330412)
+    description = "Hey guys! I m back with a cool new feature of Audio Playback.\n" \
+                  "Getting bored? Because your friends are always late for Gaming." \
+                  "Now you can utilise that time by listening to any audio from youtube using me.\n" \
+                  "Just use `>join` command to let me into a voice channel and use `>play [youtube_url]` to play the audio.\n"
+    embed = discord.Embed(title="🎵 I m back 🥳😎", description=description, color=discord.Colour.blurple())
+    embed.add_field(name="For more Info", value="https://github.com/CachingNik/QGdBOT")
+    await channel.send(embed=embed)
 
 @client.event
 async def on_message(msg):
