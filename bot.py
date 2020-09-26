@@ -6,6 +6,7 @@ import os
 client = commands.Bot(command_prefix=">")
 bad_words = ["fuck", "shit", "gay"]
 laughter = ["lol", "lel", "lmao", "lul", "rofl", "lmfao"]
+k_words = ["ok", "okay", "ok"]
 
 
 client.load_extension("fts.meme")
@@ -19,10 +20,6 @@ async def on_ready():
 
 @client.event
 async def on_message(msg):
-    for word in bad_words:
-        if word in msg.content.lower():
-            await msg.channel.send("Hey " + str(msg.author.mention) + " :rage: Mind your language!!!")
-            await msg.delete()
 
     emoji1 = discord.utils.get(client.emojis, name='PepeLaugh')
     emoji2 = discord.utils.get(client.emojis, name='FRec')
@@ -34,31 +31,41 @@ async def on_message(msg):
     lw = 0
     nw = 0
     fw = 0
+    abuse = 0
 
-    for word in laughter:
+    for word in bad_words:
         if word in swords:
-            await msg.channel.send(str(emoji1))
-            lw = 1
+            await msg.channel.send("Hey " + str(msg.author.mention) + " :rage: Mind your language!!!")
+            await msg.delete()
+            abuse = 1
 
-    if "nkli" in swords:
-        await msg.channel.send(str(emoji3))
-        await msg.channel.send("Same to U")
-        fw = 1
+    if abuse == 0:
+        for word in laughter:
+            if word in swords:
+                await msg.channel.send(str(emoji1))
+                lw = 1
 
-    if "noob" in swords:
-        await msg.channel.send(str(emoji4))
-        nw = 1
+        if "nkli" in swords:
+            await msg.channel.send(str(emoji3))
+            await msg.channel.send("Same to U")
+            fw = 1
 
-    if "f" in swords:
-        if lw == 0 and fw == 0 and nw == 0:
-            await msg.channel.send(str(emoji2))
-            await msg.add_reaction("💔")
+        if "noob" in swords:
+            await msg.channel.send(str(emoji4))
+            nw = 1
 
-    if "sed" in swords:
-        await msg.add_reaction("😭")
+        if "f" in swords:
+            if lw == 0 and fw == 0 and nw == 0:
+                await msg.channel.send(str(emoji2))
+                await msg.add_reaction("💔")
 
-    if ("k" or "okay") in swords:
-        await msg.add_reaction("👍")
+        if "sed" in swords:
+            await msg.add_reaction("😭")
+
+        if lw == 0:
+            for word in k_words:
+                if word in swords:
+                    await msg.add_reaction("👍")
 
     await client.process_commands(msg)
 
