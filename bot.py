@@ -5,7 +5,7 @@ import os
 
 client = commands.Bot(command_prefix=">")
 bad_words = ["fuck", "shit", "gay"]
-laughter = ["lol", "lel", "lmao", "lul", "rofl"]
+laughter = ["lol", "lel", "lmao", "lul", "rofl", "lmfao"]
 
 
 client.load_extension("fts.meme")
@@ -56,6 +56,9 @@ async def on_message(msg):
 
     if "sed" in swords:
         await msg.add_reaction("😭")
+
+    if ("k" or "okay") in swords:
+        await msg.add_reaction("👍")
 
     await client.process_commands(msg)
 

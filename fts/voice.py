@@ -13,7 +13,7 @@ class Voice(commands.Cog):
     @commands.has_any_role("audio")
     async def join(self, ctx):
         if ctx.message.author.voice is None:
-            await ctx.send("Brather, U need to join a Voice Channel first.")
+            await ctx.send("Brather, You need to be present in a Voice Channel to Connect/Disconnect the bot. 🙂")
             return
 
         channel = ctx.message.author.voice.channel
@@ -32,8 +32,13 @@ class Voice(commands.Cog):
     @commands.command()
     @commands.has_any_role("audio")
     async def leave(self, ctx):
+        if ctx.message.author.voice is None:
+            await ctx.send("Brather, You need to be present in a Voice Channel to Connect/Disconnect the bot. 🙂")
+            return
+
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
+
         if vc and vc.is_connected():
             if vc.is_playing():
                 vc.stop()
@@ -108,7 +113,7 @@ class Voice(commands.Cog):
 
         vc.play(discord.FFmpegPCMAudio("song.mp3"), after=lambda x: print(dict_meta['title'] + " Finished playing"))
         vc.source = discord.PCMVolumeTransformer(vc.source)
-        vc.source.volume = 0.6
+        vc.source.volume = 0.3
 
         await ctx.send("▶️ Now Playing: " + dict_meta['title'])
         print("Playing")
