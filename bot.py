@@ -6,7 +6,7 @@ import os
 client = commands.Bot(command_prefix=">")
 bad_words = ["fuck", "shit", "gay"]
 laughter = ["lol", "lel", "lmao", "lul", "rofl", "lmfao"]
-k_words = ["ok", "okay", "k"]
+k_words = ["ok", "okay"]
 
 
 client.load_extension("fts.meme")
