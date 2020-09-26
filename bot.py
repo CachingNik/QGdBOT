@@ -4,7 +4,7 @@ import os
 
 
 client = commands.Bot(command_prefix=">")
-bad_words = ["fuck", "shit"]
+bad_words = ["fuck", "shit", "gay"]
 laughter = ["lol", "lel", "lmao", "lul", "rofl"]
 
 
@@ -15,21 +15,13 @@ client.load_extension("fts.voice")
 @client.event
 async def on_ready():
     print("Bot is ready")
-    channel = client.get_channel(752244288280330412)
-    description = "Hey guys! I m back with a cool new feature of Audio Playback.\n" \
-                  "Getting bored? Because your friends are always late for Gaming.\n" \
-                  "Now you can utilise that time by listening to any audio from youtube using me.\n" \
-                  "Just use `>join` command to let me into a voice channel and use " \
-                  "`>play [youtube_url]` to play the audio.\n"
-    embed = discord.Embed(title="🎵 I m back 🥳😎", description=description, color=discord.Colour.blurple())
-    embed.add_field(name="For more Info", value="https://github.com/CachingNik/QGdBOT")
-    await channel.send(embed=embed)
+
 
 @client.event
 async def on_message(msg):
     for word in bad_words:
         if word in msg.content.lower():
-            await msg.channel.send("Hey :rage: Mind your language!!!")
+            await msg.channel.send("Hey " + str(msg.author.mention) + " :rage: Mind your language!!!")
             await msg.delete()
 
     emoji1 = discord.utils.get(client.emojis, name='PepeLaugh')
@@ -55,7 +47,6 @@ async def on_message(msg):
 
     if "noob" in swords:
         await msg.channel.send(str(emoji4))
-        await msg.channel.send("OK")
         nw = 1
 
     if "f" in swords:
