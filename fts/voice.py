@@ -9,13 +9,14 @@ class Voice(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    async def cog_before_invoke(self, ctx):
+        if ctx.message.author.voice is None:
+            await ctx.send("ERROR ‼️: " + str(ctx.message.author.mention) + " absent from Voice Channel.")
+            return
+
     @commands.command()
     @commands.has_any_role("audio")
     async def join(self, ctx):
-        if ctx.message.author.voice is None:
-            await ctx.send("Brather, You need to be present in a Voice Channel to Connect/Disconnect the bot. 🙂")
-            return
-
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
 
@@ -32,10 +33,6 @@ class Voice(commands.Cog):
     @commands.command()
     @commands.has_any_role("audio")
     async def leave(self, ctx):
-        if ctx.message.author.voice is None:
-            await ctx.send("Brather, You need to be present in a Voice Channel to Connect/Disconnect the bot. 🙂")
-            return
-
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
 
