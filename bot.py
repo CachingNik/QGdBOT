@@ -9,7 +9,7 @@ laughter = ["lol", "lel", "lmao", "lul", "rofl", "lmfao"]
 k_words = ["ok", "okay"]
 
 
-#client.load_extension("fts.meme")
+client.load_extension("fts.meme")
 client.load_extension("fts.voice")
 
 
@@ -86,4 +86,4 @@ async def sourcecode(ctx):
     await ctx.send("https://github.com/CachingNik/QGdBOT")
 
 
-client.run("NzUyMTMzNjIxOTkyNjUyOTMz.X1TNBQ.OaHdj1WbRg3_T5O2hER3NkBivKg")
+client.run(os.getenv("TOKEN"))
