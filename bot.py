@@ -4,78 +4,37 @@ import os
 
 
 client = commands.Bot(command_prefix=">")
-bad_words = ["fuck", "shit", "gay"]
-laughter = ["lol", "lel", "lmao", "lul", "rofl", "lmfao"]
-k_words = ["ok", "okay"]
 
 
 client.load_extension("fts.meme")
 client.load_extension("fts.voice")
+client.load_extension("fts.filter")
 
 
 @client.event
 async def on_ready():
+    channel = client.get_channel(760066807854923796)
+    des = "Hey guys!! This new update gives u the power to filter words into 3 diff " \
+          "categories according to your choice. The diff reactions 😂😡 of the bot on these categories " \
+          "is already known to u. U can either add or remove any word into any of these predefined category.\n" \
+          "The 3 Categories are `LAUGH` `BAD` `OK`.\n\n" \
+          "Commands:\n" \
+          "1. To add word to a category: `>add [category] [word]`\n" \
+          "2. To remove word from a category: `>rem [category] [word]`\n" \
+          "3. To view the list of Filtered words: `>filist`\n\n" \
+          "**PS: Only one word can be added or removed at a time using the commands.**"
+    embed = discord.Embed(title="🆕 Update 🥳 (Filter Words)", description=des)
+    embed.add_field(name="For more Info", value="https://github.com/CachingNik/QGdBOT")
+    await channel.send(embed=embed)
     print("Bot is ready")
 
 
-@client.event
-async def on_message(msg):
-
-    emoji1 = discord.utils.get(client.emojis, name='PepeLaugh')
-    emoji2 = discord.utils.get(client.emojis, name='FRec')
-    emoji3 = discord.utils.get(client.emojis, name='FakeBlob')
-    emoji4 = discord.utils.get(client.emojis, name='Noob')
-
-    swords = msg.content.lower().split(" ")
-
-    lw = 0
-    nw = 0
-    fw = 0
-    abuse = 0
-
-    for word in bad_words:
-        if word in swords:
-            await msg.channel.send("Hey " + str(msg.author.mention) + " :rage: Mind your language!!!")
-            await msg.delete()
-            abuse = 1
-
-    if abuse == 0:
-        for word in laughter:
-            if word in swords:
-                await msg.channel.send(str(emoji1))
-                lw = 1
-
-        if "nkli" in swords:
-            await msg.channel.send(str(emoji3))
-            await msg.channel.send("Same to U")
-            fw = 1
-
-        if "noob" in swords:
-            await msg.channel.send(str(emoji4))
-            nw = 1
-
-        if "f" in swords:
-            if lw == 0 and fw == 0 and nw == 0:
-                await msg.channel.send(str(emoji2))
-                await msg.add_reaction("💔")
-
-        if "sed" in swords:
-            await msg.add_reaction("😭")
-
-        if lw == 0:
-            for word in k_words:
-                if word in swords:
-                    await msg.add_reaction("👍")
-
-    await client.process_commands(msg)
-
-
-@client.command(aliases=["Hi", "Yo"])
+@client.command(aliases=["Hi", "Yo", "yo", "Hola"])
 async def hello(ctx):
     await ctx.send("Hi Brather")
 
 
-@client.command(aliases=["Bye", "Sayonara"])
+@client.command(aliases=["Bye", "Sayonara", "sayonara"])
 async def bye(ctx):
     await ctx.send("Bye Brather")
 

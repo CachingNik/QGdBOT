@@ -15,7 +15,7 @@ class Voice(commands.Cog):
             return
 
     @commands.command()
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def join(self, ctx):
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
@@ -31,7 +31,7 @@ class Voice(commands.Cog):
             await ctx.send("✅ Joined " + str(channel) + " Channel")
 
     @commands.command()
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def leave(self, ctx):
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
@@ -45,7 +45,7 @@ class Voice(commands.Cog):
             await ctx.send("Abee Noob, leave karvane ke liye pehle join toh karva")
 
     @commands.command(pass_context=True)
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def play(self, ctx, url=""):
         channel = ctx.message.author.voice.channel
         vc = ctx.message.guild.voice_client
@@ -116,7 +116,7 @@ class Voice(commands.Cog):
         print("Playing")
 
     @commands.command(pass_context=True)
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def pause(self, ctx):
         vc = ctx.message.guild.voice_client
 
@@ -134,7 +134,7 @@ class Voice(commands.Cog):
             await ctx.send("Nothing is being played U Idiot")
 
     @commands.command(pass_context=True)
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def resume(self, ctx):
         vc = ctx.message.guild.voice_client
 
@@ -152,7 +152,7 @@ class Voice(commands.Cog):
             await ctx.send("Nothing is being played U Idiot")
 
     @commands.command(pass_context=True)
-    @commands.has_any_role("audio")
+    @commands.has_any_role("🎵audio")
     async def stop(self, ctx):
         vc = ctx.message.guild.voice_client
 
