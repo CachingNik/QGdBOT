@@ -1,4 +1,4 @@
-# Quaratined Gamers Discord Bot
+# Quarantined Gamers Discord Bot
 
 ## Command Prefix
 Use '>' before text to interact with the bot.
@@ -51,7 +51,7 @@ Screenshots:\
 
 ## Filter Words
 
-The bot has various reactions for some words. each word falls into a category for which
+The bot has various reactions for some words. Each word falls into a category for which
 the bot has same reaction/output. These words can now be
 managed by the users using few commands.
 
