@@ -72,7 +72,7 @@ class Filter(commands.Cog):
                         await msg.add_reaction("👍")
 
     @commands.command()
-    @commands.has_any_role("🤴🏻leader", "💂‍sidekick")
+    @commands.has_any_role("🤴🏻leader", "💂‍sidekick", "🔤filter")
     async def add(self, ctx, w_type="", word=""):
 
         if w_type == "":
@@ -117,7 +117,7 @@ class Filter(commands.Cog):
         print("New Word Added")
 
     @commands.command()
-    @commands.has_any_role("🤴🏻leader", "💂‍sidekick")
+    @commands.has_any_role("🤴🏻leader", "💂‍sidekick", "🔤filter")
     async def rem(self, ctx, w_type="", word=""):
 
         if w_type == "":
