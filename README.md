@@ -55,7 +55,7 @@ The bot has various reactions for some words. Each word falls into a category fo
 the bot has same reaction/output. These words can now be
 managed by the users using few commands.
 
-This is done using Mongodb Database System. Storing all the the different words in
+This is done using Mongodb Database System. Storing all the different words in
 a collection. 
 
 Commands:
