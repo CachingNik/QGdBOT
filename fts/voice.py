@@ -14,7 +14,7 @@ class Voice(commands.Cog):
             await ctx.send("ERROR ‼️: " + str(ctx.message.author.mention) + " absent from Voice Channel.")
             return
 
-    @commands.command()
+    @commands.command(pass_context=True)
     @commands.has_any_role("🎵audio")
     async def join(self, ctx):
         channel = ctx.message.author.voice.channel
@@ -30,7 +30,7 @@ class Voice(commands.Cog):
             await channel.connect()
             await ctx.send("✅ Joined " + str(channel) + " Channel")
 
-    @commands.command()
+    @commands.command(pass_context=True)
     @commands.has_any_role("🎵audio")
     async def leave(self, ctx):
         channel = ctx.message.author.voice.channel
@@ -163,11 +163,6 @@ class Voice(commands.Cog):
         else:
             print("Music not playing to stop")
             await ctx.send("Nothing is being played U Idiot")
-
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.MissingAnyRole):
-            await ctx.send("❌ Access Denied")
 
 
 def setup(bot):

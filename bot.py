@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 import os
 
@@ -13,6 +12,8 @@ client.load_extension("fts.filter")
 
 @client.event
 async def on_ready():
+    channel = client.get_channel(752244288280330412)
+    await channel.send("🟢 ONLINE")
     print("Bot is ready")
 
 
@@ -30,6 +31,20 @@ async def bye(ctx):
 @commands.has_permissions(administrator=True)
 async def sourcecode(ctx):
     await ctx.send("https://github.com/CachingNik/QGdBOT")
+
+
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingAnyRole):
+        await ctx.send("❌ Access Denied")
+
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def shutdown(ctx):
+    print("Shutting Down...")
+    await ctx.send("🔴 OFFLINE")
+    await ctx.bot.logout()
 
 
 client.run(os.getenv("TOKEN"))
