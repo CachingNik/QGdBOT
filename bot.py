@@ -12,7 +12,7 @@ client.load_extension("fts.filter")
 
 @client.event
 async def on_ready():
-    channel = client.get_channel(752244288280330412)
+    channel = client.get_channel(760587314207522826)
     await channel.send("🟢 ONLINE")
     print("Bot is ready")
 
