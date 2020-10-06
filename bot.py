@@ -37,6 +37,8 @@ async def sourcecode(ctx):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingAnyRole):
         await ctx.send("❌ Access Denied")
+    elif isinstance(error, commands.MissingPermissions):
+        await ctx.send("❌ Access Denied")
 
 
 @client.command()
